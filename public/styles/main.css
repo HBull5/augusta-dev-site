@@ -249,9 +249,35 @@ a {
 .py-7 { padding: 1.75rem 0; }
 .py-8 { padding: 2rem 0; }
 
+/* text alignment */
+.txt-center {
+	text-align: center;
+}
+
+.txt-justify {
+	text-align: justify;
+}
+
+.txt-left {
+	text-align: left;
+}
+
+.txt-right {
+	text-align: right;
+}
+
 /* flex */
 .d-flex {
 	display: flex;
+}
+
+/* flex direction */
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-row {
+	flex-direction: row;
 }
 
 /* justify content */
