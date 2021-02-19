@@ -1,0 +1,30 @@
+/* scanlines */
+body {
+	position: relative;
+	height: 100vh;
+	background: rgb(51, 51, 51);
+	background: radial-gradient(
+		circle,
+		rgba(51, 51, 51, 1) 0%,
+		rgba(34, 34, 34, 1) 25%,
+		rgba(17, 17, 17, 1) 70%,
+		rgba(10, 10, 10, 1) 80%,
+		rgba(0, 0, 0, 1) 100%
+	);
+}
+
+body:after {
+	content: '';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: url('../img/scanlines.png');
+	opacity: 0.2;
+	z-index: 1;
+}
+
+body * {
+	z-index: 2;
+}

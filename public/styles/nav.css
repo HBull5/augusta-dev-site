@@ -1,0 +1,25 @@
+nav {
+	height: 8vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+nav h2,
+nav ul li {
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+nav ul li:last-child {
+	padding-right: 0;
+}
+
+nav ul li:hover {
+	transform: scale(1.1);
+}
+
+nav h2:hover {
+	transform: scale(1.05);
+}
