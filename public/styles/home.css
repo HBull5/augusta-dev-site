@@ -10,6 +10,14 @@
 	flex-flow: column;
 }
 
+.minimize {
+	transform: scale(0);
+}
+
+.transition {
+	transition: 0.4s;
+}
+
 .window {
 	height: 100%;
 	width: 100%;

@@ -1,3 +1,4 @@
+const windowDisplay = document.querySelector('#window-display');
 const terminal = document.querySelector('#terminal');
 const windowBox = document.querySelector('.window');
 const asci1 = `   ___                     __         ___          `;
@@ -44,6 +45,9 @@ function replaceAt(string, index, replacement) {
 
 window.onload = async () => {
 	await sleep(1000);
+	windowDisplay.classList.remove('minimize');
+	await sleep(400);
+	windowDisplay.classList.remove('transition');
 	terminal.innerHTML = `<pre>${asci1}</pre>`;
 	terminal.innerHTML += `<pre>${asci2}</pre>`;
 	terminal.innerHTML += `<pre>${asci3}</pre>`;
