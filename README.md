@@ -24,6 +24,12 @@
 
 ## Needs Done
 
+-   ASCII art augusta dev logo
+
+-   augusta dev terminal splash finish
+
+-   augusta dev favicon
+
 -   minimize button
 
 -   maximize button hover
