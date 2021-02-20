@@ -1,4 +1,5 @@
 const terminal = document.querySelector('#terminal');
+const windowBox = document.querySelector('.window');
 const asci1 = `   ___                     __         ___          `;
 const asci2 = `  / _ |__ _____ ___ _____ / /____ _  / _ \\___ _  __`;
 const asci3 = ` / __ / // / _ \`/ // (_- / __/ _ \`/ / // / -_) |/ /`;
@@ -59,6 +60,7 @@ window.onload = async () => {
 			terminal.innerHTML += `<pre>${asci4}</pre>`;
 			terminal.innerHTML += `<pre>${asci5}</pre>`;
 			terminal.innerHTML += `<p>${loadingBar}</p>`;
+			windowBox.scrollTop = windowBox.scrollHeight;
 			if (loadingBar[i + 2] === ']') {
 				break;
 			}
@@ -66,9 +68,9 @@ window.onload = async () => {
 		await sleep(50);
 	}
 	await sleep(1000);
-	terminal.innerHTML = '';
 	for (const txtCommand of txtCommands) {
 		terminal.innerHTML += `<p>${txtCommand}</p>`;
+		windowBox.scrollTop = windowBox.scrollHeight;
 		await sleep(100);
 	}
 };

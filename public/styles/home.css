@@ -1,0 +1,8 @@
+.window {
+	height: 50vh;
+	width: 60vw;
+	border: 1px solid var(--white);
+	border-radius: 5px;
+	overflow: scroll;
+	padding: 0.5rem;
+}
