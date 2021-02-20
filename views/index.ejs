@@ -8,69 +8,28 @@
 		<link rel="stylesheet" href="./public/styles/colors.css" />
 		<link rel="stylesheet" href="./public/styles/main.css" />
 		<link rel="stylesheet" href="./public/styles/scanlines.css" />
-		<link rel="stylesheet" href="./public/styles/nav.css" />
 		<link rel="stylesheet" href="./public/styles/home.css" />
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
 		<!-- Scripts -->
 		<script src="./public/scripts/home.js" defer></script>
+		<script src="./public/scripts/draggable.js" defer></script>
 		<title>Augusta Developer</title>
 	</head>
 	<body>
-		<!-- Navigation -->
-		<nav class="txt-primary">
-			<div class="container h-100 d-flex justify-between align-center">
-				<h2 class="txt-shadow-primary">Augusta Developer</h2>
-
-				<ul class="d-flex align-center">
-					<li class="px-3 txt-shadow-primary">Home</li>
-					<li class="px-3 txt-shadow-primary">Events</li>
-					<li class="px-3 txt-shadow-primary">News</li>
-					<li class="px-3 txt-shadow-primary">About</li>
-					<li class="px-3 txt-shadow-primary">Resources</li>
-				</ul>
-			</div>
-		</nav>
-
-		<!-- Content -->
-		<section class="content vh-100 txt-primary d-flex flex-column justify-center align-center">
-			<div id="window-display">
-			<div class=fakeMenu>
-				<div class="fakeButtons fakeClose"></div>
-				<div class="fakeButtons fakeMinimize"></div>
-				<div class="fakeButtons fakeZoom"></div>
-			</div>
-			<div class="window">
-				<div id="terminal">
-					<!-- fake data -->
-					<!-- <p>FORCE: XX0022. ENCYPT://000.222.2345</p>
-					<p>TRYPASS: ********* AUTH CODE: ALPHA GAMMA: 1___ PRIORITY 1</p>
-					<p>RETRY: REINDEER FLOTILLA</p>
-					<p>Z:> /FALKEN/GAMES/TICTACTOE/ EXECUTE -PLAYERS 0</p>
-					<p>================================================</p>
-					<p>Priority 1 // local / scanning...</p>
-					<p>scanning ports...</p>
-					<p>BACKDOOR FOUND (23.45.23.12.00000000)</p>
-					<p>BACKDOOR FOUND (13.66.23.12.00110000)</p>
-					<p>BACKDOOR FOUND (13.66.23.12.00110044)</p>
-					<p>...</p>
-					<p>...</p>
-					<p>BRUTE.EXE -r -z</p>
-					<p>...locating vulnerabilities...</p>
-					<p>...vulnerabilities found...</p>
-					<p>MCP/> DEPLOY CLU</p>
-					<p>SCAN: __ 0100.0000.0554.0080</p>
-					<p>SCAN: __ 0020.0000.0553.0080</p>
-					<p>SCAN: __ 0001.0000.0554.0550</p>
-					<p>SCAN: __ 0012.0000.0553.0030</p>
-					<p>SCAN: __ 0100.0000.0554.0080</p>
-					<p>SCAN: __ 0020.0000.0553.0080</p> -->
+		<!-- Terminal -->
+		<section class="content drag-container vh-100 txt-primary d-flex flex-column justify-center align-center">
+			<div style="user-select: none" id="window-display" class="drag-item">
+				<div class="fakeMenu">
+					<div class="fakeButtons fakeClose"></div>
+					<div class="fakeButtons fakeMinimize"></div>
+					<div class="fakeButtons fakeZoom"></div>
+				</div>
+				<div class="window">
+					<div id="terminal"></div>
 				</div>
 			</div>
-			</div>
 		</section>
-
-		<!-- Footer -->
 	</body>
 </html>
