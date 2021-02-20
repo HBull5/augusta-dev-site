@@ -8,6 +8,8 @@
 	position: relative;
 	display: flex;
 	flex-flow: column;
+	user-select: none;
+	touch-action: none;
 }
 
 .minimize {
