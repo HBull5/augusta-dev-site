@@ -17,7 +17,7 @@ body {
 }
 
 .minimize {
-	transform: scale(0);
+	transform: scale(0) !important;
 }
 
 .transition {
@@ -156,4 +156,10 @@ body {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+.fullscreen {
+	height: 100vh !important;
+	width: 100vw !important;
+	transform: none !important;
 }
