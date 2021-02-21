@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const windowDisplay = document.querySelector('#window-display');
 const terminal = document.querySelector('#terminal');
 const windowBox = document.querySelector('.window');
@@ -31,6 +32,9 @@ const txtCommands = [
 	'SCAN: __ 0100.0000.0554.0080',
 	'SCAN: __ 0020.0000.0553.0080'
 ];
+let booted = false;
+const bootAudio = new Audio('public/audio/boot.mp3');
+const netAudio = new Audio('public/audio/dial_up.mp3');
 
 function sleep(ms) {
 	return new Promise((resolve, reject) => {
@@ -43,38 +47,52 @@ function replaceAt(string, index, replacement) {
 	return string.substr(0, index) + replacement + string.substr(index + replacement.length);
 }
 
-window.onload = async () => {
-	await sleep(1000);
-	windowDisplay.classList.remove('minimize');
-	await sleep(400);
-	windowDisplay.classList.remove('transition');
-	terminal.innerHTML = `<pre>${asci1}</pre>`;
-	terminal.innerHTML += `<pre>${asci2}</pre>`;
-	terminal.innerHTML += `<pre>${asci3}</pre>`;
-	terminal.innerHTML += `<pre>${asci4}</pre>`;
-	terminal.innerHTML += `<pre>${asci5}</pre>`;
-	terminal.innerHTML += `<p>${loadingBar}</p>`;
-	for (let i = 1; i < loadingBar.length; i++) {
-		if (loadingBar[i] === '>') {
-			loadingBar = replaceAt(loadingBar, i + 1, '>');
-			loadingBar = replaceAt(loadingBar, i, '=');
-			terminal.innerHTML = `<pre>${asci1}</pre>`;
-			terminal.innerHTML += `<pre>${asci2}</pre>`;
-			terminal.innerHTML += `<pre>${asci3}</pre>`;
-			terminal.innerHTML += `<pre>${asci4}</pre>`;
-			terminal.innerHTML += `<pre>${asci5}</pre>`;
-			terminal.innerHTML += `<p>${loadingBar}</p>`;
-			windowBox.scrollTop = windowBox.scrollHeight;
-			if (loadingBar[i + 2] === ']') {
-				break;
+async function playModemNoise() {
+	while (true) {
+		netAudio.volume = 0.1;
+		netAudio.play();
+		await sleep(70000);
+	}
+}
+
+body.addEventListener('click', async () => {
+	if (!booted) {
+		booted = true;
+		bootAudio.volume = 0.2;
+		bootAudio.play();
+		await sleep(1000);
+		windowDisplay.classList.remove('minimize');
+		await sleep(400);
+		windowDisplay.classList.remove('transition');
+		terminal.innerHTML = `<pre>${asci1}</pre>`;
+		terminal.innerHTML += `<pre>${asci2}</pre>`;
+		terminal.innerHTML += `<pre>${asci3}</pre>`;
+		terminal.innerHTML += `<pre>${asci4}</pre>`;
+		terminal.innerHTML += `<pre>${asci5}</pre>`;
+		terminal.innerHTML += `<p>${loadingBar}</p>`;
+		for (let i = 1; i < loadingBar.length; i++) {
+			if (loadingBar[i] === '>') {
+				loadingBar = replaceAt(loadingBar, i + 1, '>');
+				loadingBar = replaceAt(loadingBar, i, '=');
+				terminal.innerHTML = `<pre>${asci1}</pre>`;
+				terminal.innerHTML += `<pre>${asci2}</pre>`;
+				terminal.innerHTML += `<pre>${asci3}</pre>`;
+				terminal.innerHTML += `<pre>${asci4}</pre>`;
+				terminal.innerHTML += `<pre>${asci5}</pre>`;
+				terminal.innerHTML += `<p>${loadingBar}</p>`;
+				windowBox.scrollTop = windowBox.scrollHeight;
+				if (loadingBar[i + 2] === ']') {
+					break;
+				}
 			}
+			await sleep(50);
 		}
-		await sleep(50);
+		await sleep(1000);
+		for (const txtCommand of txtCommands) {
+			terminal.innerHTML += `<p>${txtCommand}</p>`;
+			windowBox.scrollTop = windowBox.scrollHeight;
+			await sleep(100);
+		}
+		playModemNoise();
 	}
-	await sleep(1000);
-	for (const txtCommand of txtCommands) {
-		terminal.innerHTML += `<p>${txtCommand}</p>`;
-		windowBox.scrollTop = windowBox.scrollHeight;
-		await sleep(100);
-	}
-};
+});

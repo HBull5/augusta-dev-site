@@ -20,10 +20,22 @@
 	</head>
 	<body>
 		<!-- Navigation -->
-		<%- include('./partials/nav.ejs') %>
+		<%- // include('./partials/nav.ejs') %>
 
 		<!-- Terminal -->
 		<section class="content drag-container vh-100 txt-primary d-flex flex-column justify-center align-center">
+			<div class="shortcut shortcut-1 d-flex flex-column jusitfy-center align-center">
+				<div class="terminal-icon"></div>
+				<p>terminal</p>
+			</div>
+			<div class="shortcut shortcut-2 d-flex flex-column jusitfy-center align-center">
+				<div class="net-icon"></div>
+				<p>internet</p>
+			</div>
+			<div class="shortcut shortcut-3 d-flex flex-column justify-content align-center">
+				<div class="txt-icon"></div>
+				<p>readme.txt</p>
+			</div>
 			<div id="window-display" class="drag-item minimize transition">
 				<div class="fakeMenu">
 					<div class="fakeButtons fakeClose"></div>

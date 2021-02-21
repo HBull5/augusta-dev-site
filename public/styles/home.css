@@ -1,3 +1,7 @@
+body {
+	overflow: hidden;
+}
+
 #window-display {
 	height: 50vh;
 	width: 60vw;
@@ -39,6 +43,7 @@
 	margin: 0 auto;
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
+	cursor: pointer;
 }
 
 .fakeButtons {
@@ -94,4 +99,61 @@
 	left: 16px;
 	background-color: #00d742;
 	border-color: #049931;
+}
+
+.shortcut {
+	position: absolute;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+.shortcut:hover p {
+	text-shadow: 0 0 10px var(--primary);
+}
+
+.shortcut-1 {
+	top: 5%;
+	left: 5%;
+}
+
+.shortcut-2 {
+	top: 25%;
+	left: 5%;
+}
+
+.shortcut-2 p {
+	position: relative;
+	top: -20px;
+}
+
+.shortcut-3 {
+	bottom: 15%;
+	right: 5%;
+}
+
+.terminal-icon {
+	height: 50px;
+	width: 50px;
+	background: url('../img/terminal.png');
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.net-icon {
+	height: 81px;
+	width: 81px;
+	background: url('../img/net.png');
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.txt-icon {
+	height: 50px;
+	width: 50px;
+	background: url('../img/txt-icon.png');
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
