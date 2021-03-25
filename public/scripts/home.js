@@ -2,6 +2,7 @@ const body = document.querySelector('body');
 const windowDisplay = document.querySelector('#window-display');
 const terminal = document.querySelector('#terminal');
 const windowBox = document.querySelector('.window');
+const muteBtn = document.querySelector('.mute-btn');
 const asci1 = `   ___                     __         ___          `;
 const asci2 = `  / _ |__ _____ ___ _____ / /____ _  / _ \\___ _  __`;
 const asci3 = ` / __ / // / _ \`/ // (_- / __/ _ \`/ / // / -_) |/ /`;
@@ -33,6 +34,7 @@ const txtCommands = [
 	'SCAN: __ 0020.0000.0553.0080'
 ];
 let booted = false;
+let muted = false;
 const bootAudio = new Audio('public/audio/boot.mp3');
 const netAudio = new Audio('public/audio/dial_up.mp3');
 
@@ -43,17 +45,40 @@ function sleep(ms) {
 		}, ms);
 	});
 }
+
+function mute() {
+	bootAudio.volume = 0;
+	netAudio.volume = 0;
+}
+
+function unmute() {
+	bootAudio.volume = 1;
+	netAudio.volume = 1;
+}
+
 function replaceAt(string, index, replacement) {
 	return string.substr(0, index) + replacement + string.substr(index + replacement.length);
 }
 
 async function playModemNoise() {
-	while (true) {
+	while (!muted) {
 		netAudio.volume = 0.1;
 		netAudio.play();
 		await sleep(70000);
 	}
 }
+
+muteBtn.addEventListener('click', async () => {
+	if (!muted) {
+		mute();
+		muted = true;
+		muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+	} else {
+		unmute();
+		muted = false;
+		muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+	}
+});
 
 body.addEventListener('click', async () => {
 	if (!booted) {
