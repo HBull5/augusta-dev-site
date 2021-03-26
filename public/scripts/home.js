@@ -52,8 +52,8 @@ function mute() {
 }
 
 function unmute() {
-	bootAudio.volume = 1;
-	netAudio.volume = 1;
+	bootAudio.volume = 0.2;
+	netAudio.volume = 0.1;
 }
 
 function replaceAt(string, index, replacement) {
