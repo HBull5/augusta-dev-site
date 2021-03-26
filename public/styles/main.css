@@ -19,6 +19,11 @@ a {
 	color: inherit;
 }
 
+input {
+	background: none;
+	color: var(--primary);
+}
+
 /* colors */
 .bg-dark {
 	background: var(--black);
